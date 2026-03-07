@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+
+  ai-lab:
+
+    build: .
+
+    container_name: hf_ai_lab
+
+    volumes:
+      - .:/workspace
+
+    ports:
+      - "8888:8888"
+
+    environment:
+      - HF_HOME=/workspace/cache
