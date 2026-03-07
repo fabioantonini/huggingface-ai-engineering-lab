@@ -27,9 +27,11 @@ streamlit
 
 opencv-python
 Pillow
+diffusers
 
 soundfile
 librosa
+openai-whisper
 
 python-dotenv
 tqdm
