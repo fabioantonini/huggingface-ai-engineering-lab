@@ -14,7 +14,9 @@ COPY requirements.txt .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . .
+COPY notebooks /workspace/notebooks
+COPY src /workspace/src
+COPY requirements.txt .
 
 EXPOSE 8888
 
