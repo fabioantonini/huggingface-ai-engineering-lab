@@ -61,6 +61,44 @@ HUGGING_FACE_HUB_TOKEN=hf_...   # Required for gated models
 
 The Docker container sets `HF_HOME=/workspace/cache` to persist downloaded models inside the project directory.
 
+## Building for Multiple Architectures (amd64 + arm64)
+
+Docker's `buildx` allows building a single multi-platform image that works on both Intel/AMD machines and Apple Silicon (M1/M2/M3) or ARM servers.
+
+### One-time setup — create a multi-platform builder
+
+```bash
+docker buildx create --name multiarch --driver docker-container --use
+docker buildx inspect --bootstrap
+```
+
+### Build and push to Docker Hub
+
+```bash
+docker buildx build \
+  --platform linux/amd64,linux/arm64 \
+  -t your-dockerhub-username/hf-ai-lab:latest \
+  --push \
+  .
+```
+
+Replace `your-dockerhub-username/hf-ai-lab` with your actual Docker Hub repository name.
+`--push` is required for multi-platform builds — Docker cannot load both architectures into the local daemon simultaneously.
+
+### Build a single platform locally (no push)
+
+```bash
+# For the current machine architecture:
+docker buildx build --platform linux/amd64 -t hf-ai-lab:latest --load .
+docker buildx build --platform linux/arm64 -t hf-ai-lab:latest --load .
+```
+
+### Notes
+
+- `buildx` with `docker-container` driver uses QEMU emulation for cross-compilation — the arm64 build on an amd64 machine (and vice versa) will be slower than a native build.
+- The base image `python:3.11` is available for both platforms on Docker Hub, so no changes to the Dockerfile are needed.
+- After pushing, Docker Desktop automatically pulls the correct variant for the host architecture.
+
 ## Requirements
 
 Key dependencies are listed in [requirements.txt](requirements.txt):
