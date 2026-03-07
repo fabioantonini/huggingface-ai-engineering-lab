@@ -44,6 +44,15 @@ docker compose up --build
 Open `http://localhost:8888` in your browser.
 If prompted for a token, copy it from the container logs (look for a line containing `?token=`).
 
+**GPU support:** the compose file passes all NVIDIA GPUs to the container. This requires:
+- NVIDIA drivers installed on the host
+- [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html) installed (`nvidia-ctk`)
+
+To verify the GPU is visible inside the container:
+```bash
+docker exec hf_ai_lab python -c "import torch; print(torch.cuda.is_available())"
+```
+
 ### Option 2 — Local installation
 
 ```bash
