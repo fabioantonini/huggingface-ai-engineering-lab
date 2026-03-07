@@ -2,9 +2,11 @@ FROM python:3.11
 
 WORKDIR /workspace
 
+ENV HF_HOME=/workspace/cache
+ENV PYTHONUNBUFFERED=1
+
 RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
-    ffmpeg \
     libgl1 \
     && rm -rf /var/lib/apt/lists/*
 
@@ -16,4 +18,4 @@ COPY . .
 
 EXPOSE 8888
 
-CMD ["jupyter","lab","--ip=0.0.0.0","--port=8888","--no-browser","--allow-root"]
+CMD ["jupyter", "lab", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root"]
