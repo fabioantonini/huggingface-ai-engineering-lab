@@ -8,19 +8,5 @@ services:
 
     container_name: hf_ai_lab
 
-    volumes:
-      - .:/workspace
-
     ports:
       - "8888:8888"
-
-    environment:
-      - HF_HOME=/workspace/cache
-
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: all
-              capabilities: [gpu]
