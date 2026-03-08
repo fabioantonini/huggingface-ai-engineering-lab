@@ -16,6 +16,5 @@ env
 
 node_modules
 
-datasets
 models
 cache
