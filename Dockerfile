@@ -15,8 +15,9 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY notebooks /workspace/notebooks
+COPY advanced_notebooks /workspace/advanced_notebooks
 COPY src /workspace/src
-COPY requirements.txt .
+COPY datasets /workspace/datasets
 
 EXPOSE 8888
 
