@@ -15,7 +15,6 @@ huggingface-ai-engineering-lab/
 │   ├── 02_transformers_pipeline.ipynb
 │   ├── 03_text_generation.ipynb
 │   ├── 04_embeddings_similarity.ipynb
-│   ├── 04_embeddings.ipynb           # Legacy embeddings notebook
 │   ├── 05_huggingface_datasets.ipynb
 │   ├── 06_fine_tuning_classifier.ipynb
 │   └── 07_semantic_search.ipynb
@@ -85,4 +84,4 @@ Set variables in a `.env` file at the project root (loaded via `python-dotenv`).
 - `src/` modules are meant to be imported inside notebooks; add the project root to `sys.path` if needed.
 - The Docker volume mount (`.:/workspace`) syncs local changes into the container in real time — no rebuild needed for notebook edits.
 - FAISS index is built in memory; persistence is not implemented in the current `vector_search.py`.
-- Advanced notebooks (10–14) cover RAG, chatbots, image classification, CLIP, and image captioning; add cells as needed.
+- Advanced notebooks (10–14) cover RAG, chatbots, image classification, CLIP, and image captioning; all are fully implemented with didactic examples.
