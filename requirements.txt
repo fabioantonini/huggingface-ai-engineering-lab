@@ -1,6 +1,6 @@
-transformers
+transformers==5.3.0
 datasets
-huggingface_hub
+huggingface_hub==1.6.0
 sentence-transformers
 accelerate
 evaluate
