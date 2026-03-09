@@ -4,33 +4,46 @@ Hands-on Jupyter notebooks for building AI systems with open-source models from 
 
 ## Topics
 
-- Transformers and NLP pipelines
-- Embeddings and semantic search
+- Hugging Face ecosystem (Hub, Transformers, Datasets)
+- NLP pipelines: sentiment, NER, QA, summarization, translation
+- Text generation and decoding strategies
+- Embeddings and semantic similarity
+- Semantic search with FAISS
+- Fine-tuning transformer classifiers
 - Retrieval-Augmented Generation (RAG)
-- Chatbots and LLM agents
-- Multimodal AI (images, vision-language models)
-- Voice AI (speech recognition and synthesis)
+- Chatbots with DialoGPT
+- Vision Transformers (ViT) for image classification
+- Multimodal AI: CLIP and image captioning
 
 ## Project Structure
 
 ```
 huggingface-ai-engineering-lab/
-├── notebooks/                    # Core notebooks
+├── notebooks/                        # Core notebooks
+│   ├── 00_course_index.ipynb         # Course roadmap and environment check
 │   ├── 01_huggingface_ecosystem.ipynb
-│   └── 04_embeddings.ipynb
-├── advanced_notebooks/           # Advanced topics
-│   ├── 13_llm_agents.ipynb
-│   ├── 14_multimodal_models.ipynb
-│   └── 15_voice_ai.ipynb
-├── src/                          # Reusable Python modules
-│   ├── embeddings.py
-│   ├── rag.py
-│   └── vector_search.py
+│   ├── 02_transformers_pipeline.ipynb
+│   ├── 03_text_generation.ipynb
+│   ├── 04_embeddings_similarity.ipynb
+│   ├── 05_huggingface_datasets.ipynb
+│   ├── 06_fine_tuning_classifier.ipynb
+│   └── 07_semantic_search.ipynb
+├── advanced_notebooks/               # Advanced topics
+│   ├── 10_rag_pipeline.ipynb
+│   ├── 11_chatbot_transformers.ipynb
+│   ├── 12_image_classification.ipynb
+│   ├── 13_clip_multimodal.ipynb
+│   └── 14_image_captioning.ipynb
+├── src/                              # Reusable Python modules
+│   ├── embeddings.py                 # SentenceTransformer wrapper
+│   ├── rag.py                        # RAG pipeline
+│   └── vector_search.py             # FAISS-based vector search
 ├── datasets/
-│   └── example_documents.txt
+│   └── example_documents.txt        # Sample corpus for RAG and semantic search
 ├── Dockerfile
 ├── docker-compose.yml
-└── requirements.txt
+├── requirements.txt
+└── README.md
 ```
 
 ## Getting Started
@@ -114,10 +127,11 @@ Key dependencies are listed in [requirements.txt](requirements.txt):
 
 | Group | Packages |
 |---|---|
-| Hugging Face | `transformers`, `datasets`, `huggingface_hub`, `sentence-transformers`, `accelerate`, `diffusers` |
-| Vector search | `faiss-cpu`, `sentence-transformers` |
-| LLM agents | `langchain`, `langchain-community` |
-| Voice AI | `openai-whisper`, `librosa`, `soundfile` |
-| Vision | `opencv-python`, `Pillow` |
-| UI / demos | `gradio`, `streamlit` |
-| Backend | `torch`, `torchvision`, `torchaudio` |
+| Hugging Face | `transformers`, `datasets`, `huggingface_hub`, `sentence-transformers`, `accelerate`, `evaluate` |
+| Vector search | `faiss-cpu` |
+| ML utilities | `scikit-learn`, `numpy`, `pandas` |
+| Vision | `Pillow` |
+| Visualization | `matplotlib`, `seaborn` |
+| Backend | `torch`, `torchvision` |
+| Notebook | `jupyterlab`, `ipywidgets` |
+| Utilities | `python-dotenv`, `tqdm`, `requests` |
