@@ -48,6 +48,15 @@ huggingface-ai-engineering-lab/
 
 ## Getting Started
 
+### Option 0 — Pull prebuilt image from Docker Hub (fastest)
+
+```bash
+docker pull fabioantonini/huggingface-ai-engineering-lab:latest
+docker run -p 8888:8888 fabioantonini/huggingface-ai-engineering-lab:latest
+```
+
+Open `http://localhost:8888`. Models are downloaded automatically on first notebook run and cached locally.
+
 ### Option 1 — Docker (recommended)
 
 ```bash
@@ -99,12 +108,11 @@ docker buildx inspect --bootstrap
 ```bash
 docker buildx build \
   --platform linux/amd64,linux/arm64 \
-  -t your-dockerhub-username/hf-ai-lab:latest \
+  -t fabioantonini/huggingface-ai-engineering-lab:latest \
   --push \
   .
 ```
 
-Replace `your-dockerhub-username/hf-ai-lab` with your actual Docker Hub repository name.
 `--push` is required for multi-platform builds — Docker cannot load both architectures into the local daemon simultaneously.
 
 ### Build a single platform locally (no push)
